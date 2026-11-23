@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 94365,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "87e04e8cc40494a3beeb4eb3a18e23a39905f9a987f4877943bcb91dba4bd0c9",
+      "sha256": "87e04e8cc40494a3beeb4eb3a18e23a39905f9a987f4877943bcb91dba4bd0c9"
+    },
+    "source": {
+      "bytes": 17579,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "e997bbc2bdc2f1e64904f588d3da397b61ce9b20c424719bb83c51d320f37964",
+      "sha256": "e997bbc2bdc2f1e64904f588d3da397b61ce9b20c424719bb83c51d320f37964"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "Extending Das et al., Quantum 9, 1867 (2025), we prove their full-orthonormal-basis tomography conjecture immediately after Theorem 3 in Section 3.2.1 by completing their reduction in Section 5.4 after Figure 5: the Nagaoka-Hayashi bound is at most d+1 times the Holevo bound once the latter is minimized by the maximally mixed state. For full-rank states the same sharp bound holds for the optimal individual-measurement cost, improving Theorem 5 as well as Theorem 3. For identity weight and purity P, both ratios are at most (d^2+d-1-P)/m_d(P), where m_d(P)=d-P+sqrt((d-1)(dP-1)) is the exact minimum Holevo cost at that purity. The proof evaluates the spectral Holevo formula within established D-invariant theory and combines the feasible NH blocks of Das et al. with Scott's (2006) estimator variance formula. The maximum ratio is attained uniquely at the maximally mixed state. Greater purity need not give greater Holevo cost for individual full-rank states.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 3,
+    "doi": null,
+    "lean_source": {
+      "revision": "3d88df0f99ef3c8bfb034fa52be669b13746a844",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/3d88df0f99ef3c8bfb034fa52be669b13746a844/D5/S3/Quantum/Measurements/OnbTomographyHolevoRatio.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 94365,
+      "sha256": "87e04e8cc40494a3beeb4eb3a18e23a39905f9a987f4877943bcb91dba4bd0c9",
+      "url": "/api/v1/collected-papers/das-et-al-2025-onb-tomography-holevo-ratio/files/pdf?version=3"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-23T00:42:09.533984717Z",
+    "record": "das-et-al-2025-onb-tomography-holevo-ratio",
+    "repository_name": "das-et-al-2025-onb-tomography-holevo-ratio",
+    "source": {
+      "bytes": 17579,
+      "sha256": "e997bbc2bdc2f1e64904f588d3da397b61ce9b20c424719bb83c51d320f37964",
+      "url": "/api/v1/collected-papers/das-et-al-2025-onb-tomography-holevo-ratio/files/source?version=3"
+    },
+    "title": "Fixed-purity Holevo minima extending Das et al. (2025): a spectral proof of the full-ONB conjecture after Theorem 3 in Section 3.2.1",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-23T00:42:09.533984717Z",
+        "revision": "3",
+        "version": 3
+      }
+    ],
+    "work": "das-et-al-2025-onb-tomography-holevo-ratio"
+  }
+}

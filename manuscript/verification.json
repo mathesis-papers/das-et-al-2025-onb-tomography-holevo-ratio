@@ -1,0 +1,150 @@
+{
+  "arithmetic": "SymPy exact algebra and Python Fraction",
+  "attaining_families": {
+    "dimensions": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "families": [
+      "one larger eigenvalue",
+      "one smaller eigenvalue"
+    ],
+    "parameter_denominator": 12,
+    "spectra": 182
+  },
+  "coverage": "Exact finite matrix identities and rational-spectrum inequalities; all-dimensional conclusions have written proofs in note.pdf.",
+  "design_checks": [
+    {
+      "dimension": 2,
+      "full_rank_fisher_examples": [
+        {
+          "estimator_total_variance": "9/2",
+          "fisher_inverse_trace": "9/2",
+          "purity": "1/2"
+        },
+        {
+          "estimator_total_variance": "40/9",
+          "fisher_inverse_trace": "13/3",
+          "purity": "5/9"
+        }
+      ],
+      "identities": [
+        "weighted_two_design_moment",
+        "POVM_normalization",
+        "global_unbiasedness",
+        "constant_score_norm"
+      ],
+      "outcomes": 6
+    },
+    {
+      "dimension": 3,
+      "full_rank_fisher_examples": [
+        {
+          "estimator_total_variance": "32/3",
+          "fisher_inverse_trace": "32/3",
+          "purity": "1/3"
+        },
+        {
+          "estimator_total_variance": "191/18",
+          "fisher_inverse_trace": "94/9",
+          "purity": "7/18"
+        }
+      ],
+      "identities": [
+        "weighted_two_design_moment",
+        "POVM_normalization",
+        "global_unbiasedness",
+        "constant_score_norm"
+      ],
+      "outcomes": 12
+    }
+  ],
+  "matrix_checks": [
+    {
+      "basis_size": 3,
+      "block_size": 6,
+      "dimension": 2,
+      "identities": [
+        "orthonormality",
+        "completeness_on_matrix_units",
+        "casimir",
+        "hermitian_involution",
+        "primal_constraint_factorization",
+        "primal_diagonal_sum",
+        "symbolic_imaginary_covariance"
+      ]
+    },
+    {
+      "basis_size": 8,
+      "block_size": 24,
+      "dimension": 3,
+      "identities": [
+        "orthonormality",
+        "completeness_on_matrix_units",
+        "casimir",
+        "hermitian_involution",
+        "primal_constraint_factorization",
+        "primal_diagonal_sum",
+        "symbolic_imaginary_covariance"
+      ]
+    }
+  ],
+  "purity_ordering_counterexample": {
+    "dimension": 3,
+    "full_rank": true,
+    "holevo_costs": [
+      "759/200",
+      "187/50"
+    ],
+    "purities": [
+      "121/200",
+      "33/50"
+    ],
+    "spectra": [
+      [
+        "3/4",
+        "1/5",
+        "1/20"
+      ],
+      [
+        "4/5",
+        "1/10",
+        "1/10"
+      ]
+    ]
+  },
+  "spectral_checks": [
+    {
+      "denominator": 12,
+      "dimension": 2,
+      "spectra": 13
+    },
+    {
+      "denominator": 12,
+      "dimension": 3,
+      "spectra": 91
+    },
+    {
+      "denominator": 12,
+      "dimension": 4,
+      "spectra": 455
+    },
+    {
+      "denominator": 12,
+      "dimension": 5,
+      "spectra": 1820
+    }
+  ],
+  "spectral_inequalities": [
+    "sum_absolute_gaps_squared >= (d-1)(d*P-1)",
+    "equality classification by ordered spectral gaps",
+    "global Holevo range and pure-state equality",
+    "quantitative gap below d+1"
+  ],
+  "status": "pass"
+}

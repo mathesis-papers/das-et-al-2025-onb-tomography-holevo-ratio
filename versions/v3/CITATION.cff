@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, cite it."
+title: "Fixed-purity Holevo minima extending Das et al. (2025): a spectral proof of the full-ONB conjecture after Theorem 3 in Section 3.2.1"
+authors:
+  - name: "Haobo Ma"
+  - name: "Wenlin Zhang"
+date-released: "2026-11-23"
+version: "3"
+url: "https://mathesis-omega-research.apps.chrono-ai.fun/papers/das-et-al-2025-onb-tomography-holevo-ratio?version=3"
+license: "CC-BY-4.0"

@@ -1,0 +1,23 @@
+{
+  "id": "das-et-al-2025-onb-tomography-holevo-ratio",
+  "revision": 3,
+  "problem_ids": [
+    "das-et-al-2025-onb-tomography-holevo-ratio"
+  ],
+  "topic": "The identity-weight full-ONB tomography conjecture after Theorem 3 in Section 3.2.1 of Das et al. (2025)",
+  "title": "Fixed-purity Holevo minima extending Das et al. (2025): a spectral proof of the full-ONB conjecture after Theorem 3 in Section 3.2.1",
+  "creators": [
+    {
+      "name": "Ma, Haobo",
+      "affiliation": "ChronoAI Pte Ltd, Singapore"
+    },
+    {
+      "name": "Zhang, Wenlin",
+      "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"
+    }
+  ],
+  "abstract": "Extending Das et al., Quantum 9, 1867 (2025), we prove their full-orthonormal-basis tomography conjecture immediately after Theorem 3 in Section 3.2.1 by completing their reduction in Section 5.4 after Figure 5: the Nagaoka-Hayashi bound is at most d+1 times the Holevo bound once the latter is minimized by the maximally mixed state. For full-rank states the same sharp bound holds for the optimal individual-measurement cost, improving Theorem 5 as well as Theorem 3. For identity weight and purity P, both ratios are at most (d^2+d-1-P)/m_d(P), where m_d(P)=d-P+sqrt((d-1)(dP-1)) is the exact minimum Holevo cost at that purity. The proof evaluates the spectral Holevo formula within established D-invariant theory and combines the feasible NH blocks of Das et al. with Scott's (2006) estimator variance formula. The maximum ratio is attained uniquely at the maximally mixed state. Greater purity need not give greater Holevo cost for individual full-rank states.",
+  "summary": "A complete written proof for full identity-weight orthonormal tomography in every dimension d >= 2, including positive semidefinite states for the NH inequality. A finite weighted-projective-two-design argument also proves the same sharp d+1 bound for the optimal individual-measurement/Holevo ratio on full-rank states, improving Theorem 5 of the source without a SIC-existence assumption. Further results give the exact fixed-purity Holevo minimum, all its equality spectra, a decreasing ratio upper envelope, the global Holevo range, a full-rank qutrit counterexample to universal purity ordering, and quantitative stability. Arbitrary weights, general lower-dimensional models, and the actual fixed-purity NH/H extremizers are not covered.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/3d88df0f99ef3c8bfb034fa52be669b13746a844/D5/S3/Quantum/Measurements/OnbTomographyHolevoRatio.lean"
+}

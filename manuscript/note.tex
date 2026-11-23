@@ -1,0 +1,475 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Id}{I}
+\newcommand{\CH}{C_{\mathrm H}}
+\newcommand{\CN}{C_{\mathrm{NH}}}
+\newcommand{\CM}{C_{\mathrm{MI}}}
+\newcommand{\normone}[1]{\left\lVert#1\right\rVert_1}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\title{Fixed-purity Holevo minima extending Das et al. (2025): a spectral proof of the full-ONB conjecture after Theorem 3 in Section 3.2.1}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore\and
+Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{November 8, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Extending Das et al., Quantum \textbf{9}, 1867 (2025), we prove their
+full-orthonormal-basis tomography conjecture immediately after Theorem 3
+in Section 3.2.1 by completing their reduction in Section 5.4 after Fig.~5:
+the Nagaoka--Hayashi bound is at most $d+1$ times the Holevo bound once
+the latter is minimized by the maximally mixed state.
+For full-rank states the same sharp bound holds for the optimal
+individual-measurement cost, improving the source's Theorem~5 as well as Theorem~3.
+For identity weight and purity $P$, we prove the stronger estimate
+$\CN/\CH\leq(d^2+d-1-P)/m_d(P)$, where
+$m_d(P)=d-P+\sqrt{(d-1)(dP-1)}$ is the exact minimum Holevo cost at that purity.
+We prove that minimality through an explicit spectral evaluation of the
+Holevo cost, within the established D-invariant theory, and use the
+feasible Nagaoka--Hayashi blocks of Das et al. The maximum is attained
+at the maximally mixed state and is strictly smaller at every other state.
+We also distinguish this increasing minimum cost from the failure of purity
+to order the costs of individual states.
+\end{abstract}
+
+\section{Question and normalization}
+Das et al.\ \cite[Sec.~3.2.1, paragraph after Theorem~3; Sec.~5.4,
+paragraph after Eq.~(49)]{Das} propose replacing their $d+2$ bound by $d+1$
+for full orthonormal-basis (ONB) tomography: the source says
+``we propose'' $\mathcal R^{\mathrm{NH}}[\{\rho_\theta\}]\leq d+1$.
+In Section~5.4, immediately after Fig.~5, they also identify the sufficient
+condition $\CH(\rho)\geq\CH(\Id_d/d)$ for this improvement.
+Our contribution is a proof of that minimality by spectral evaluation,
+its exact fixed-purity refinement, and an individual-measurement extension.
+We use the identity weight. The first arXiv version (15 May 2024), Section~IV.B
+after Theorem~2 and Eq.~(32), already identifies the same $d+1$ target;
+the locators used below refer to version~2 (25 September 2025).
+For full-rank full tomography, the equality of the Holevo and right
+logarithmic derivative bounds belongs to the established D-invariant
+theory; see Suzuki~\cite[Sec.~4.1.2, Proposition~2]{Suzuki}.
+The eigenvalue-gap expression below is a direct evaluation in the present
+normalization. Its proof also includes positive semidefinite boundary states.
+Scott's linear-tomography error formula~\cite[Sec.~VI, Eqs.~(101)--(103)]{Scott}
+is exactly the score-variance formula used below: Hilbert--Schmidt squared
+error equals the sum of squared errors in these ONB coordinates.
+The individual-measurement corollary combines that prior estimator bound
+with the spectral Holevo minimum.
+Fix $d\geq2$, $n=d^2-1$, and a basis
+$B_1,\ldots,B_n$ of the traceless Hermitian $d\times d$ matrices with
+$\tr(B_jB_k)=\delta_{jk}$. Write
+\[
+ \rho=\frac{\Id_d}{d}+\sum_{j=1}^n\theta_j B_j\succeq0,
+ \qquad P=\tr(\rho^2)=\frac1d+\sum_j\theta_j^2.
+\]
+Thus $\tr\rho=1$ and $1/d\leq P\leq1$. These are the normalization and
+model of \cite[Sec.~5.2, Eq.~(23); Appendix~A]{Das}.
+
+An uncentered locally unbiased family consists of Hermitian operators
+$X_k$ satisfying
+\[
+ \tr(\rho X_k)=\theta_k,\qquad
+ \tr(B_jX_k)=\delta_{jk}.
+\]
+Every such family equals $X_k=B_k$: the second constraint gives
+$X_k=B_k+a_k\Id_d$, and the first gives $a_k=0$.
+For $Z_{jk}=\tr(\rho B_jB_k)$, the identity-weight Holevo bound is therefore
+\begin{equation}\label{eq:costs}
+ \CH=\tr Z+\normone{\operatorname{Im}Z}-\sum_j\theta_j^2.
+\end{equation}
+Here $\operatorname{Im}$ is entrywise and $\normone{\cdot}$ is the sum of
+singular values. The Nagaoka--Hayashi bound is
+\begin{equation}\label{eq:nh}
+ \CN=\inf_L\sum_j\tr(\rho L_{jj})-\sum_j\theta_j^2,
+ \quad L_{jk}=L_{kj}=L_{jk}^{\dagger},\quad
+ [L_{jk}-B_jB_k]_{j,k}\succeq0.
+\end{equation}
+The block matrix acts on $\mathbb C^n\otimes\mathbb C^d$.
+These are \cite[Eqs.~(4), (6)]{Das}; the semidefinite formulation is
+developed in \cite{Conlon}. Singular $\rho$ are included as algebraic
+values of these formulas; the usual full-rank statistical interpretation
+applies on the interior.
+
+\section{The estimate}
+\begin{theorem}\label{thm:main}
+For every $d\geq2$, every full traceless Hermitian ONB, and every density
+matrix $\rho$ as above,
+\begin{equation}\label{eq:main}
+ \CH\geq(d-1)(1+P),\qquad
+ \CN\leq d^2+d-1-P,
+\end{equation}
+and consequently
+\begin{equation}\label{eq:ratio}
+ \frac{\CN}{\CH}
+ \leq \frac{d^2+d-1-P}{(d-1)(1+P)}\leq d+1.
+\end{equation}
+The second inequality is strict unless $\rho=\Id_d/d$.
+At $\rho=\Id_d/d$ the ratio is $d+1$.
+\end{theorem}
+
+\begin{lemma}\label{lem:spectrum}
+If $\lambda_1,\ldots,\lambda_d$ are the eigenvalues of $\rho$, then
+\begin{equation}\label{eq:spectrum}
+ \CH=d-P+\sum_{a<b}|\lambda_a-\lambda_b|.
+\end{equation}
+In particular $\CH\geq(d-1)(1+P)$.
+\end{lemma}
+\begin{proof}
+Adjoining $\Id_d/\sqrt d$ gives an orthonormal basis for all complex
+matrices. Expansion in that basis, evaluated on matrix units, gives
+\begin{equation}\label{eq:fierz}
+ \sum_j(B_j)_{ab}(B_j)_{ce}
+ =\delta_{ae}\delta_{bc}-\frac1d\delta_{ab}\delta_{ce},\qquad
+ \sum_j B_j A B_j=\tr(A)\Id_d-\frac{A}{d}.
+\end{equation}
+These are the usual completeness identities; see
+\cite[Sec.~2]{Haber}, with generators multiplied by $\sqrt2$.
+Putting $A=\Id_d$ yields $\sum_jB_j^2=(d^2-1)\Id_d/d$.
+Hence $\tr Z=(d^2-1)/d$, and subtracting
+$\sum_j\theta_j^2=P-1/d$ leaves $d-P$ in \eqref{eq:costs}.
+
+An orthogonal change of the real Hermitian ONB changes $Z$ to $OZO^T$,
+which preserves its imaginary-part trace norm. Conjugating both $\rho$
+and the basis by a unitary also preserves every trace. We may therefore
+diagonalize $\rho$ and use, for each $a<b$,
+\[
+ S_{ab}=\frac{E_{ab}+E_{ba}}{\sqrt2},\qquad
+ A_{ab}=\frac{-i(E_{ab}-E_{ba})}{\sqrt2},
+\]
+together with an orthonormal traceless diagonal family.
+The imaginary part of $Z$ has one block per pair $a<b$,
+\[
+ \begin{pmatrix}0&(\lambda_a-\lambda_b)/2\\
+ -(\lambda_a-\lambda_b)/2&0\end{pmatrix},
+\]
+and zeros elsewhere. Indeed two distinct unordered off-diagonal pairs
+have no diagonal contribution to their product, diagonal/off-diagonal
+products have zero trace against $\rho$, and diagonal/diagonal products
+are real. The two singular values of the displayed block are both
+$|\lambda_a-\lambda_b|/2$. This proves \eqref{eq:spectrum}.
+
+Since $0\leq\lambda_a\leq1$,
+\[
+ \sum_{a<b}|\lambda_a-\lambda_b|
+ \geq\sum_{a<b}(\lambda_a-\lambda_b)^2=dP-1,
+\]
+where the last equality follows by expanding and using
+$\sum_a\lambda_a=1$. Substitution in \eqref{eq:spectrum} proves the claim.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+The first bound is Lemma~\ref{lem:spectrum}.
+For the second use the blocks of Das et al.\ \cite[Eq.~(37), Appendix~E.2]{Das}:
+\begin{equation}\label{eq:primal}
+ L^*_{jk}=c(B_jB_k+B_kB_j+\delta_{jk}\Id_d),
+ \qquad c=\frac{d+1}{d+2}.
+\end{equation}
+Here is a direct positivity argument. Put $r=1/(d+1)$ and define the
+Hermitian block matrix $T_{jk}=B_kB_j-rB_jB_k$. By \eqref{eq:fierz},
+\begin{align*}
+ (T^2)_{j\ell}
+ &=\delta_{j\ell}\Id_d+
+ \left(-\frac1d+\frac{2r}{d}+\frac{r^2(d^2-1)}d\right)B_jB_\ell
+ =\delta_{j\ell}\Id_d.
+\end{align*}
+Thus the eigenvalues of $T$ belong to $\{-1,1\}$ and $\Id_{nd}+T\succeq0$.
+Since $cr=1-c$, the constraint matrix for \eqref{eq:primal} is
+$[L^*_{jk}-B_jB_k]=c(\Id_{nd}+T)\succeq0$.
+The other constraints in \eqref{eq:nh} follow directly from
+$B_j=B_j^{\dagger}$. Also,
+\[
+ \sum_j L^*_{jj}
+ =c\left(2\frac{d^2-1}{d}+d^2-1\right)\Id_d
+ =\frac{(d^2-1)(d+1)}d\Id_d.
+\]
+The infimum is finite: every admissible $L$ has
+$L_{jj}\succeq B_j^2\succeq0$, so its uncentered cost is nonnegative;
+$L^*$ supplies a finite feasible cost. Inserting $L^*$ in
+\eqref{eq:nh} and subtracting $P-1/d$ proves the second bound.
+
+The denominator $(d-1)(1+P)$ is positive. The difference between
+$(d+1)(d-1)(1+P)$ and $d^2+d-1-P$ is $d(dP-1)$, proving
+\eqref{eq:ratio}, strictly for $P>1/d$. At $P=1/d$,
+$\rho=\Id_d/d$ and $\CH=(d^2-1)/d$ by \eqref{eq:spectrum}.
+The matching value $\CN=(d^2-1)(d+1)/d$ is
+\cite[Lemma~3, Eq.~(38), Appendix~E.3--E.4]{Das}, whose matching primal
+and dual objectives establish equality without any SIC-existence assumption.
+\end{proof}
+
+\section{Consequences for purity and the source's related statements}
+\begin{corollary}\label{cor:depolarized}
+For $\rho=p|\psi\rangle\langle\psi|+(1-p)\Id_d/d$, $0\leq p\leq1$,
+\[
+ \CH=\frac{d^2-1}{d}+(d-1)p-\frac{d-1}{d}p^2.
+\]
+For pure states, $\CH=2(d-1)$. The maximally mixed state is the unique
+minimizer of $\CH$ over all density matrices in this model.
+\end{corollary}
+\begin{proof}
+The eigenvalues are $(1+(d-1)p)/d$ and $(1-p)/d$ with multiplicity $d-1$.
+Their absolute pairwise differences sum to $(d-1)p$, and
+$P=(1+(d-1)p^2)/d$. Apply \eqref{eq:spectrum}.
+The final assertion follows from
+$\CH\geq(d-1)(1+P)\geq(d^2-1)/d$ and equality only at $P=1/d$.
+\end{proof}
+
+\begin{corollary}\label{cor:fixedpurity}
+At each $P\in[1/d,1]$, the minimum Holevo cost over states of purity $P$ is
+\begin{equation}\label{eq:envelope}
+ m_d(P)=d-P+\sqrt{(d-1)(dP-1)}.
+\end{equation}
+It is attained by the depolarized pure states of
+Corollary~\ref{cor:depolarized}, with $p=\sqrt{(dP-1)/(d-1)}$.
+For $P>1/d$, the other minimizing spectra, when distinct, have one smaller
+eigenvalue and $d-1$ equal larger eigenvalues; they exist exactly when
+$P\leq1/(d-1)$. Consequently,
+\begin{equation}\label{eq:sharpratio}
+ \frac{\CN}{\CH}\leq F_d(P):=
+ \frac{d^2+d-1-P}{m_d(P)}
+ \leq \frac{d^2+d-1-P}{(d-1)(1+P)}\leq d+1.
+\end{equation}
+The function $F_d$ is strictly decreasing on $[1/d,1]$.
+\end{corollary}
+\begin{proof}
+Order the eigenvalues $\lambda_1\geq\cdots\geq\lambda_d$ and put
+$\delta_k=\lambda_k-\lambda_{k+1}\geq0$.
+Let $v^{(k)}$ have $k$ coordinates equal to $(d-k)/d$ and the remaining
+coordinates equal to $-k/d$. Then
+\[
+ \lambda-(1/d,\ldots,1/d)=\sum_{k=1}^{d-1}\delta_kv^{(k)},\quad
+ \|v^{(k)}\|_2=\sqrt{\frac{k(d-k)}d},\quad
+ \sum_{a<b}|\lambda_a-\lambda_b|=\sum_{k=1}^{d-1}k(d-k)\delta_k.
+\]
+The triangle inequality and $k(d-k)\geq d-1$ give
+\[
+ \sqrt{P-1/d}\leq\sum_k\delta_k\sqrt{k(d-k)/d}
+ \leq\frac{\sum_{a<b}|\lambda_a-\lambda_b|}{\sqrt{d(d-1)}}.
+\]
+Equation~\eqref{eq:spectrum} now proves $\CH\geq m_d(P)$, and the
+depolarized spectrum gives equality. Equality in the last two inequalities,
+away from the uniform spectrum, requires exactly one nonzero gap, at
+$k=1$ or $k=d-1$: different $v^{(k)}$ are not positively collinear.
+The second spectrum is
+$( (1+q)/d,\ldots,(1+q)/d,(1-(d-1)q)/d )$ with
+$q=\sqrt{(dP-1)/(d-1)}\leq1/(d-1)$, proving the equality description.
+The two families coincide up to permutation when $d=2$.
+Since $0\leq dP-1\leq d-1$, we have
+$\sqrt{(d-1)(dP-1)}\geq dP-1$, so
+$m_d(P)\geq(d-1)(1+P)$.
+For $P>1/d$,
+\[
+ m_d'(P)=-1+\frac{d(d-1)}{2\sqrt{(d-1)(dP-1)}}\geq d/2-1\geq0.
+\]
+The derivative is positive except possibly at the endpoint $d=2,P=1$.
+Thus $m_d$ is strictly increasing; the positive numerator of $F_d$ is
+strictly decreasing. Continuity includes $P=1/d$ and proves the last claim.
+\end{proof}
+
+\begin{corollary}\label{cor:mi}
+For full identity-weight ONB tomography of a full-rank state, let $\CM$
+denote the optimal individual-measurement cost, as in \cite[Eq.~(3)]{Das}.
+Then
+\[
+ \CN\leq\CM\leq d^2+d-1-P,\qquad
+ \frac{\CM}{\CH}\leq F_d(P)\leq d+1.
+\]
+The maximum ratio is $d+1$, attained exactly at $\rho=\Id_d/d$.
+No existence assumption for SIC POVMs is needed.
+The Gill--Massar ratio $C_{\mathrm{GM}}/\CH$ has the same upper envelope
+$F_d(P)$ and the same unique maximizer.
+\end{corollary}
+\begin{proof}
+The upper bound has the same right side as \cite[Eq.~(55)]{Das}.
+Here is a finite-POVM argument, using weighted complex projective
+two-designs and the linear-estimation variance formula of
+\cite[Proposition~13, Eqs.~(101)--(103)]{Scott}.
+For a uniformly distributed rank-one projector $Q$,
+unitary invariance and trace normalization give
+\[
+ \int Q\otimes Q\,d\mu(Q)=\frac{\Id+\mathsf F}{d(d+1)},
+\]
+where $\mathsf F$ exchanges the tensor factors. The integral belongs to
+the convex hull of the compact set $\{Q\otimes Q\}$, so Carath\'eodory's
+theorem gives finitely many projectors $Q_s$ and weights $w_s>0$ with
+$\sum_s w_s=1$ and
+\begin{equation}\label{eq:design}
+ \sum_s w_s Q_s\otimes Q_s=\frac{\Id+\mathsf F}{d(d+1)}.
+\end{equation}
+Taking a partial trace gives $\sum_s w_sQ_s=\Id_d/d$.
+Thus $M_s=dw_sQ_s$ is a POVM. Assign the outcome scores
+$f_j(s)=(d+1)\tr(B_jQ_s)$. Equation~\eqref{eq:design} gives
+\[
+ \sum_s\tr(\rho M_s) f_j(s)=\tr(\rho B_j)=\theta_j.
+\]
+Hence the scores are globally unbiased. Completeness of the ONB gives,
+for every rank-one $Q_s$,
+\[
+ \sum_j f_j(s)^2=(d+1)^2\left(\tr(Q_s^2)-\frac1d\right)
+ =\frac{(d^2-1)(d+1)}d.
+\]
+Their total variance is therefore
+$(d^2-1)(d+1)/d-(P-1/d)=d^2+d-1-P$.
+The moment identity also implies informational completeness: if traceless
+Hermitian $A$ has $\tr(AQ_s)=0$ for every $s$, then
+$\tr(A^2)/[d(d+1)]=0$ by \eqref{eq:design}, so $A=0$.
+For full-rank $\rho$, the outcome probabilities are positive and the
+classical Fisher matrix $J_M$ is nonsingular. The classical Cram\'er--Rao
+inequality gives $\tr J_M^{-1}\leq\sum_j\operatorname{Var}f_j$, proving
+the cost bound. The variance formula itself holds for every positive
+semidefinite state.
+The inequality $\CN\leq\CM$ is the NH relaxation
+\cite[Eq.~(8)]{Das}; Corollary~\ref{cor:fixedpurity} proves the ratio bound.
+At $\Id_d/d$, the matching NH value from Lemma~3 of \cite{Das} and the
+displayed upper bound give equality for $\CM$ too. Away from that state,
+$F_d(P)<d+1$.
+The GM bound is a lower bound on $\CM$ \cite[Eq.~(158)]{Das}, so it
+inherits the envelope. At $\Id_d/d$, the SLD Fisher matrix is
+$d\Id_n$, giving $C_{\mathrm{GM}}=n^2/[d(d-1)]=(d^2-1)(d+1)/d$,
+which proves its sharpness as well.
+\end{proof}
+
+\begin{corollary}\label{cor:range}
+The Holevo cost satisfies
+\[
+ \frac{d^2-1}{d}\leq\CH\leq2(d-1).
+\]
+The lower endpoint occurs exactly at $\rho=\Id_d/d$, and the upper endpoint
+exactly at pure states. Nevertheless, greater purity need not give greater
+Holevo cost, even for full-rank states in dimension three.
+\end{corollary}
+\begin{proof}
+The lower endpoint was proved in Corollary~\ref{cor:depolarized}.
+Write $M=\sum_{a<b}\min(\lambda_a,\lambda_b)$.
+Since $\sum_{a<b}|\lambda_a-\lambda_b|=d-1-2M$, we have
+$\CH=2d-1-P-2M$.
+Also $1-P=2\sum_{a<b}\lambda_a\lambda_b\leq2M$, giving the upper bound.
+If two eigenvalues are positive, their product is strictly smaller than
+their minimum, so equality is possible exactly at rank one.
+For the final assertion take the two diagonal spectra
+\[
+ \lambda^{A}=(3/4,1/5,1/20),\qquad
+ \lambda^{B}=(4/5,1/10,1/10).
+\]
+Both have gap sum $7/5$, while
+$P_A=121/200<33/50=P_B$ and
+$\CH(\lambda^A)=759/200>187/50=\CH(\lambda^B)$.
+\end{proof}
+
+The source's increasing-Holevo-cost discussion following Eq.~(49) in
+\cite[Sec.~5.4]{Das} is supported there by particular families and numerical
+plots. A universal ordering of arbitrary states by purity is not asserted
+as a theorem in the source and fails for the displayed pair.
+The exact increasing minimum in Corollary~\ref{cor:fixedpurity}
+is a valid state-independent statement. Its decreasing ratio bound $F_d(P)$ does not by
+itself determine the actual maximal NH/H ratio at fixed purity, nor its
+maximizers in \cite[Sec.~3.3, Fig.~3]{Das}.
+
+\begin{corollary}\label{cor:stability}
+Let $R$ be either $\CN/\CH$, or $\CM/\CH$ for full-rank states. Then
+\[
+ d+1-R\geq\frac{d(dP-1)}{(d-1)(1+P)}.
+\]
+In particular, $R\geq d+1-\varepsilon$ implies
+$\|\rho-\Id_d/d\|_{\mathrm{HS}}^2\leq2(d-1)\varepsilon/d^2$.
+\end{corollary}
+\begin{proof}
+For either ratio, $R\leq(d^2+d-1-P)/[(d-1)(1+P)]$.
+Subtract this bound from $d+1$.
+Then use $P-1/d=\|\rho-\Id_d/d\|_{\mathrm{HS}}^2$ and $1+P\leq2$.
+\end{proof}
+
+\section{Coverage and mathematical evidence}
+The following locators refer to \cite{Das}, arXiv version~2.
+\begin{center}\small
+\begin{tabular}{@{}p{.43\linewidth}p{.51\linewidth}@{}}
+\toprule
+Source item & Coverage\\\midrule
+Theorem~1; Eq.~(17); Appendix~J: general $n$ and GM ratio bounds
+& Prior proofs cited. For full ONB tomography, Corollary~\ref{cor:mi} also gives the GM purity envelope; NH--GM equality is not needed.\\[3pt]
+Sec.~3.2.1 after Theorem~3; Sec.~5.4 after Eq.~(49): full-ONB $d+1$ conjecture
+& Proved: Theorem~\ref{thm:main}, completing the reduction already identified by Das et al. (2025), Sec.~5.4 after Fig.~5.\\[3pt]
+Theorem~3: full-ONB $d+2$ estimate
+& Proved: improved to $d+1$; equality only at $\Id_d/d$.\\[3pt]
+Sec.~5.4 after Fig.~5: minimum-Holevo-cost reduction
+& Prior reduction credited to Das et al. (2025); minimality proved by Lemma~\ref{lem:spectrum}. Exact fixed-purity minimum and global range in Corollaries~\ref{cor:fixedpurity}--\ref{cor:range}.\\[3pt]
+Sec.~5.4 after Eq.~(49): increasing-Holevo-cost language
+& Universal ordering not asserted as a theorem in the source; it fails for the pair in Corollary~\ref{cor:range}. The fixed-purity minimum increases.\\[3pt]
+Theorem~2, Lemma~3: maximally mixed ratio
+& Prior proof: Das et al. (2025), Lemma~3 and Appendix~E.3--E.4, supplies sharpness.\\[3pt]
+Eq.~(18): depolarized pure-state Holevo cost
+& Reproved; prior formula: Das et al. (2025), Eq.~(18), in Corollary~\ref{cor:depolarized}.\\[3pt]
+Eq.~(19), fixed-purity extremizers in Sec.~3.3
+& Not covered: NH-cost formula and actual ratio extremizers. Corollary~\ref{cor:fixedpurity} supplies a decreasing upper envelope, not their solution.\\[3pt]
+Eqs.~(13), (50); Appendix~H
+& Not covered: arbitrary-weight, arbitrary-state conjecture. Prior proof cited for the maximally mixed case.\\[3pt]
+Theorem~4; general $n$-parameter conjecture in Sec.~4
+& Prior proof cited for the maximally mixed subset bound; not covered for arbitrary subsets or the general $\min(n,d+1)$ conjecture.\\[3pt]
+Theorem~5; Sec.~5.6, Eq.~(55); Appendix~I: MICRB $d+2$ bound
+& Proved: improved to $d+1$ in Corollary~\ref{cor:mi}, with the same purity envelope and unique maximizer.\\[3pt]
+Scott (2006), Sec.~VI, Eqs.~(101)--(103): two-design estimator variance
+& Reproved; prior proof Scott (2006). The ONB-coordinate variance is the same Hilbert--Schmidt error; Corollary~\ref{cor:mi} combines it with the Holevo minimum.\\[3pt]
+Sec.~4: qutrit four-parameter optimum
+& Not covered: the optimum for general four-parameter models.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The declaration
+\texttt{D5.S3.Quantum.Measurements.}\allowbreak\texttt{OnbTomographyHolevoRatio.result}
+in the \href{https://github.com/the-omega-institute/trureturing/blob/3d88df0f99ef3c8bfb034fa52be669b13746a844/D5/S3/Quantum/Measurements/OnbTomographyHolevoRatio.lean}{pinned Lean file}
+proves $\CN\leq(d+1)\CH$ under the full identity-weight hypotheses of
+Theorem~\ref{thm:main}, including positive semidefinite states.
+The spectral formula, stronger ratio bounds, exact fixed-purity minimum
+and equality spectra, MI bound, global range, counterexample and stability
+have written proofs above. Sharpness uses the cited maximally mixed NH value.
+The exact finite checks in \texttt{verify.py} cover matrix identities for
+$d=2,3$; all $2379$ denominator-$12$ spectra for $2\leq d\leq5$;
+$182$ attaining spectra for $2\leq d\leq8$; and two-design moment,
+unbiasedness and Fisher identities for $6$- and $12$-outcome POVMs.
+They complement the all-dimensional proofs. The stronger ratio envelope
+need not be attained away from $\Id_d/d$.
+
+\begingroup\small
+\begin{thebibliography}{9}
+\bibitem{Das}
+A. Das, L. O. Conlon, J. Suzuki, S. K. Yung, P. K. Lam, and S. M. Assad,
+\emph{Holevo Cram\'er--Rao bound: How close can we get without entangling measurements?},
+Quantum \textbf{9}, 1867 (2025).
+\href{https://doi.org/10.22331/q-2025-09-30-1867}{doi:10.22331/q-2025-09-30-1867};
+\href{https://arxiv.org/abs/2405.09622v2}{arXiv:2405.09622v2}.
+The earlier statement is in
+\href{https://arxiv.org/abs/2405.09622v1}{arXiv:2405.09622v1}, Sec.~IV.B.
+\bibitem{Conlon}
+L. O. Conlon, J. Suzuki, P. K. Lam, and S. M. Assad,
+\emph{Efficient computation of the Nagaoka--Hayashi bound for multiparameter estimation with separable measurements},
+npj Quantum Information \textbf{7}, 110 (2021).
+\href{https://doi.org/10.1038/s41534-021-00414-1}{doi:10.1038/s41534-021-00414-1}.
+\bibitem{Haber}
+H. E. Haber,
+\emph{Useful relations among the generators in the defining and adjoint representations of SU($N$)},
+SciPost Physics Lecture Notes \textbf{21} (2021).
+\href{https://doi.org/10.21468/SciPostPhysLectNotes.21}{doi:10.21468/SciPostPhysLectNotes.21};
+\href{https://arxiv.org/abs/1912.13302}{arXiv:1912.13302}.
+\bibitem{Scott}
+A. J. Scott,
+\emph{Tight informationally complete quantum measurements},
+Journal of Physics A: Mathematical and General \textbf{39}, 13507--13530 (2006).
+\href{https://doi.org/10.1088/0305-4470/39/43/009}{doi:10.1088/0305-4470/39/43/009};
+\href{https://arxiv.org/abs/quant-ph/0604049}{arXiv:quant-ph/0604049}.
+\bibitem{Suzuki}
+J. Suzuki,
+\emph{Information Geometrical Characterization of Quantum Statistical Models in Quantum Estimation Theory},
+Entropy \textbf{21}, 703 (2019).
+\href{https://doi.org/10.3390/e21070703}{doi:10.3390/e21070703};
+\href{https://arxiv.org/abs/1807.06990}{arXiv:1807.06990}.
+The preprint's corresponding locators are Theorems~III.6 and IV.2 and Eq.~(31).
+\end{thebibliography}
+\endgroup
+\smallskip\noindent\small
+Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).
+\end{document}
