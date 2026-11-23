@@ -28,9 +28,9 @@
         "name": "Wenlin Zhang"
       }
     ],
-    "concept_doi": null,
+    "concept_doi": "10.5281/zenodo.24408304",
     "current_version": 3,
-    "doi": null,
+    "doi": "10.5281/zenodo.24408305",
     "lean_source": {
       "revision": "3d88df0f99ef3c8bfb034fa52be669b13746a844",
       "url": "https://github.com/the-omega-institute/trureturing/blob/3d88df0f99ef3c8bfb034fa52be669b13746a844/D5/S3/Quantum/Measurements/OnbTomographyHolevoRatio.lean"
