@@ -31,6 +31,7 @@
     "concept_doi": "10.5281/zenodo.24408304",
     "current_version": 3,
     "doi": "10.5281/zenodo.24408305",
+    "kind": "note",
     "lean_source": {
       "revision": "3d88df0f99ef3c8bfb034fa52be669b13746a844",
       "url": "https://github.com/the-omega-institute/trureturing/blob/3d88df0f99ef3c8bfb034fa52be669b13746a844/D5/S3/Quantum/Measurements/OnbTomographyHolevoRatio.lean"
@@ -55,10 +56,12 @@
     "title": "Fixed-purity Holevo minima extending Das et al. (2025): a spectral proof of the full-ONB conjecture after Theorem 3 in Section 3.2.1",
     "versions": [
       {
+        "changelog": null,
         "previous_version": null,
         "published_on": "2026-11-23T00:42:09.533984717Z",
         "revision": "3",
-        "version": 3
+        "version": 3,
+        "version_label": null
       }
     ],
     "work": "das-et-al-2025-onb-tomography-holevo-ratio"
